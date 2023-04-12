@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "bridgepilot"
+version = "0.1.8"
+description = ""
+authors = ["Michael Verhulst <michael@terminallabs.com>"]
+readme = "README.md"
+packages = [{include = "bridgepilot", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.scripts]
+bridgepilot = 'bridgepilot.cli:cli'
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
