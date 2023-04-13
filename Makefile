@@ -1,7 +1,8 @@
 APPNAME=bridgepilot
 TYPE=python
-PYTHONVERSION="3.11.3"
+PYTHONVERSION="3.6.9"
 EXTRAS="none"
+PLUGIN="python-poetry"
 
 help:
 	@echo "usage: make [command]"
@@ -11,11 +12,11 @@ define kickoff
 endef
 
 download_bash_environment_manager:
-	@if test ! -d ".tmp/bash-environment-manager-master";then \
+	@if test ! -d ".tmp/wget/bash-environment-manager-master";then \
 		sudo su -m $(SUDO_USER) -c "mkdir -p .tmp"; \
 		sudo su -m $(SUDO_USER) -c "mkdir -p .tmp/wget"; \
 		sudo su -m $(SUDO_USER) -c "cd .tmp/wget; wget -O bash-environment-manager.zip https://github.com/terminal-labs/bash-environment-manager/archive/master.zip"; \
-		sudo su -m $(SUDO_USER) -c "cd .tmp/wget; unzip bash-environment-manager.zip"; \
+		sudo su -m $(SUDO_USER) -c "cd .tmp/wget; unzip -n bash-environment-manager.zip"; \
 	fi
 
 conda: CONFIGURATION="default"
