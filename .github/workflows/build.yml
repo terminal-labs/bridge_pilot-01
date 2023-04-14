@@ -15,6 +15,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run bash-environment-manager      
       run: |
+        mkdir -p .repo
         curl https://raw.githubusercontent.com/terminal-labs/bash-environment-shelf/master/prepscripts/mock_vagrant.sh --output .repo/mock_vagrant.sh
         sudo bash .repo/mock_vagrant.sh
-        sudo -H -u vagrant bash -c 'export HOME=/home/vagrant; cd /vagrant; sudo make conda'
+        cd /vagrant; sudo su vagrant -c "sudo make conda"
