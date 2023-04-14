@@ -28,9 +28,10 @@ setup_kwargs = {
     'package_data': package_data,
     'include_package_data': True,
     'python_requires': '>=3.8,<4.0',
+    'install_requires': ["flask",],
     'entry_points': '''
         [console_scripts]
-        bridgepilot=bridgepilot.cli:cli
+        bridgepilot=bridgepilot.ux.cli:cli
         ''',
 }
 

@@ -1,0 +1,9 @@
+host = "0.0.0.0"
+port = "5555"
+PRINT_VERBOSITY = "high"
+EXCLUDED_DIRS = [".DS_Store"]
+TEMPDIR = "/tmp"
+TEXTTABLE_STYLE = ["-", "|", "+", "-"]
+MINIMUM_PYTHON_VERSION = (3, 11, 3)
+ALLOWSERVE__INFO = True
+ALLOWSERVE__ALLINFO = True
