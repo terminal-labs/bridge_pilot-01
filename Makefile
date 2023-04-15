@@ -8,7 +8,7 @@ help:
 	@echo "usage: make [command]"
 
 define kickoff
-	@sudo bash .tmp/wget/bash-environment-manager-master/plugins/default/configuration/basis/core/assemble.sh $(APPNAME) $(SUDO_USER) $(CONFIGURATION) $(TYPE) $(PYTHONVERSION) $(HOSTTYPE)
+	@sudo bash .tmp/wget/bash-environment-manager-master/plugins/default/configuration/basis/core/assemble.sh $(APPNAME) $(SUDO_USER) $(CONFIGURATION) $(TYPE) $(PYTHONVERSION) $(HOSTTYPE) $(INTERNALUSER)
 endef
 
 download_bash_environment_manager:
@@ -26,6 +26,7 @@ conda: download_bash_environment_manager
 
 vagrant.conda: CONFIGURATION="default"
 vagrant.conda: HOSTTYPE="vagrant"
+vagrant.conda: INTERNALUSER="vagrant"
 vagrant.conda: download_bash_environment_manager
 	@if test ! -f "Vagrantfile";then \
 		wget https://raw.githubusercontent.com/terminal-labs/bash-environment-shelf/master/vagrantfiles/Vagrantfile; \
