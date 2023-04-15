@@ -3,12 +3,13 @@ TYPE=python
 PYTHONVERSION="3.6.9"
 EXTRAS="none"
 PLUGIN="python-poetry"
+PLATFORM="/home/vagrant/.bem"
 
 help:
 	@echo "usage: make [command]"
 
 define kickoff
-	@sudo bash .tmp/wget/bash-environment-manager-master/plugins/default/configuration/basis/core/assemble.sh $(APPNAME) $(SUDO_USER) $(CONFIGURATION) $(TYPE) $(PYTHONVERSION) $(HOSTTYPE) $(INTERNALUSER)
+	@sudo bash .tmp/wget/bash-environment-manager-master/plugins/default/configuration/basis/core/assemble.sh $(APPNAME) $(SUDO_USER) $(CONFIGURATION) $(TYPE) $(PYTHONVERSION) $(HOSTTYPE) $(INTERNALUSER) $(PLATFORM)
 endef
 
 download_bash_environment_manager:
@@ -21,6 +22,7 @@ download_bash_environment_manager:
 
 conda: CONFIGURATION="default"
 conda: HOSTTYPE="host"
+conda: INTERNALUSER=$(SUDO_USER)
 conda: download_bash_environment_manager
 	$(call kickoff)
 
